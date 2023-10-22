@@ -28,7 +28,7 @@ function Search() {
 
   useEffect(() => {
     dispatch(getCategories(searchValue));
-  }, []);
+  }, [dispatch, searchValue]);
 
   return (
     <div className="search-pane">

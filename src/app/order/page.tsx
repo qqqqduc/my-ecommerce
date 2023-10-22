@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { UserContext } from "@/context/Context";
 import { addDoc, collection, doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/utils/firebase";
+import Image from "next/image";
 
 function Order() {
   const cart = useSelector((state: any) => state.Product.cart);
@@ -210,7 +211,7 @@ function Order() {
                 (item: any, index: number) => (
                   <tr key={index}>
                     <td className="align-middle">
-                      <img
+                      <Image
                         src={item.image}
                         className="rounded img-thumbnail"
                         alt="..."

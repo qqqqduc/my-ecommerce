@@ -12,6 +12,7 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "@/utils/firebase";
+import Image from "next/image";
 
 function Profile() {
   const { user } = useContext(UserContext);
@@ -67,7 +68,7 @@ function Profile() {
               Thông tin tài khoản
             </h3>
             <div className="profile__avatar">
-              <img src={user?.photoURL} alt="" />
+              <Image src={user?.photoURL} alt="" />
               <span>
                 <AiFillCamera />
                 <p>Thay đổi</p>

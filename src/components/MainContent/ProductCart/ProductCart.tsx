@@ -10,6 +10,7 @@ import {
 } from "@/redux/actions/productsAction";
 import _ from "lodash";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface Item {
   id: number;
@@ -46,7 +47,7 @@ function ProductCart(props: Item) {
   return (
     <tr className="mb-2">
       <td className="cart-item align-middle">
-        <img
+        <Image
           src={props.image}
           className="rounded img-thumbnail"
           alt="..."

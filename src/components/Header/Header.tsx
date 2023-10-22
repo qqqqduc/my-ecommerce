@@ -10,6 +10,7 @@ import { auth } from "@/utils/firebase";
 import { signOut } from "firebase/auth";
 import { UserContext } from "@/context/Context";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 function Header() {
   const { user, setUser } = useContext(UserContext);
@@ -55,7 +56,7 @@ function Header() {
                         marginRight: 4,
                       }}
                     >
-                      <img src={user.photoURL} alt="" />
+                      <Image src={user.photoURL} alt="" />
                     </div>
                     <span>{user.email}</span>
                   </Dropdown.Toggle>

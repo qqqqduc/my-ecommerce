@@ -5,6 +5,7 @@ import "./ProductDetail.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct, getProductDetail } from "@/redux/actions/productsAction";
 import { FaCartPlus } from "react-icons/fa";
+import Image from "next/image";
 
 function ProductDetail({ params }: { params: { id: number } }) {
   const productDetail = useSelector((state: any) => state.Product.product);
@@ -18,7 +19,7 @@ function ProductDetail({ params }: { params: { id: number } }) {
     if (params.id) {
       dispatch(getProductDetail(params.id));
     }
-  }, []);
+  }, [dispatch, params.id]);
 
   return (
     <div className="container bg-white p-4" style={{minHeight: '80vh'}}>
@@ -30,7 +31,7 @@ function ProductDetail({ params }: { params: { id: number } }) {
       </div>
       <div className="row" style={{padding: '20px 0'}}>
         <div className="col-md-6 d-flex justify-content-center">
-          <img
+          <Image
             src={productDetail.image}
             className="rounded img-thumbnail"
             alt="..."

@@ -6,6 +6,7 @@ import _ from "lodash";
 import Link from "next/link";
 import "./Cart.scss";
 import { UserContext } from "@/context/Context";
+import Image from "next/image";
 
 function Cart() {
   const { user } = useContext(UserContext);
@@ -63,7 +64,7 @@ function Cart() {
               Xem sản phẩm ngay
             </Link>
           </h4>
-          <img src="/assets/img/emptycart1.png" alt="" width="100%" />
+          <Image src="/assets/img/emptycart1.png" alt="" width={100} />
         </div>
       )}
     </div>

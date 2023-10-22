@@ -9,6 +9,7 @@ import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { SIGNIN_SUCCESS } from "@/redux/type";
 import Link from "next/link";
 import { UserContext } from "@/context/Context";
+import Image from "next/image";
 
 function Signin() {
   const [inputEmail, setInputEmail] = useState("");
@@ -92,7 +93,7 @@ function Signin() {
         <h2 className="text-center mb-4 text-uppercase">Đăng nhập</h2>
         <div className="position-relative">
           <div className="mb-2">
-            <img src="./assets/img/logoGG.svg" alt="" />
+            <Image src="./assets/img/logoGG.svg" alt="" />
             <button
               className="signin-google"
               onClick={(e) => handleSignInWithGoogle(e)}

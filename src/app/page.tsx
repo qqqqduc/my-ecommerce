@@ -20,7 +20,7 @@ export default function Home() {
     if(proType !== "All") {
       dispatch(getProductsByCategory(proType))
     }
-  }, [proType])
+  }, [dispatch, proType])
 
   return (
     <div className="container p-4" style={{ minHeight: "80vh" }}>
