@@ -69,7 +69,7 @@ function Shipping() {
       const foundObject = _.find(district, { district_name: districtName });
       dispatch(getWard(foundObject.district_id));
     }
-  }, [dispatch, provinceName, districtName]);
+  }, [dispatch, provinceName, districtName, district, province]);
 
   return (
     <div className="container bg-white p-4">
