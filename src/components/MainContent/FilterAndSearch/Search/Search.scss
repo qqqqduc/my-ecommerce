@@ -1,0 +1,21 @@
+.search-pane {
+    display: flex;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+
+    .search {
+        padding: 8px 12px;
+        width: 100%;
+        border: none;
+        outline: none;
+    }
+
+    .custom-btn {
+        border-radius: 4px;
+    }
+
+    span {
+        font-size: 20px;
+    }
+}

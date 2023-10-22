@@ -1,0 +1,51 @@
+.title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .cart-item {
+    text-align: center;
+  }
+  
+  .cart-title {
+    max-width: 380px;
+    color: #6c757d;
+  
+    &:hover {
+      color: #494f54;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  
+  .cart-price {
+    color: rgb(238, 77, 45);
+  
+    span {
+      font-size: 12px;
+    }
+  }
+  
+  .delete-icon {
+    font-size: 24px;
+    color: #dc3545;
+  
+    &:hover {
+      color: rgb(238, 77, 45);
+      cursor: pointer;
+    }
+  }
+  
+  .order-product {
+    text-align: right;
+  
+    h4 {
+      font-size: 20px;
+  
+      span {
+        margin-left: 2px;
+        color: rgb(238, 77, 45);
+      }
+    }
+  }
+  

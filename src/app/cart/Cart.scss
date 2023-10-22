@@ -1,0 +1,14 @@
+.cart--empty {
+    text-align: center;
+    margin: 24px 0 8px 0;
+
+    .text {
+        color: #dc3545;
+        text-decoration: none;
+
+        &:hover {
+            color: #a71d2a;
+            text-decoration: underline;
+        }
+    }
+}

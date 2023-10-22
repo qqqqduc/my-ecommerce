@@ -1,0 +1,95 @@
+.step-node {
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .circle {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: #888;
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 16%;
+      left: 36%;
+      color: #fff;
+    }
+
+    .separate {
+      margin-top: 12px;
+      width: 136px;
+      height: 1px;
+      background-color: #aaa;
+      position: absolute;
+      top: 5px;
+      left: 38px;
+    }
+  }
+}
+
+.custom-form {
+  max-width: 450px;
+  border: 1px solid rgb(221, 221, 221);
+  padding: 30px;
+
+  .position-relative {
+    img {
+      width: 54px;
+      height: 64px;
+      position: absolute;
+      top: -7px;
+      left: -2px;
+    }
+    .signin-google {
+      cursor: pointer;
+      background-color: rgb(66, 133, 244);
+      color: rgb(255, 255, 255);
+      height: 50px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .signin-facebook {
+      background-color: #3a5a98;
+      color: #fff;
+      outline: none;
+      border: none;
+      height: 50px;
+      width: 100%;
+      position: relative;
+      border-radius: 5px;
+      margin-bottom: 10px;
+
+      .signin-facebook-icon {
+        display: inline-block;
+        margin-right: 16px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .text-info {
+    font-size: 12px;
+    text-decoration: none;
+    color: #17a2b8 !important;
+
+    &:hover {
+      color: #0f6674 !important;
+      text-decoration: underline;
+    }
+  }
+
+  .create-account {
+    color: crimson;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
