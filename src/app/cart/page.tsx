@@ -7,7 +7,7 @@ import Link from "next/link";
 import "./Cart.scss";
 import { UserContext } from "@/context/Context";
 
-function page() {
+function Cart() {
   const { user } = useContext(UserContext);
   const cart = useSelector((state: any) => state.Product.cart);
 
@@ -70,4 +70,4 @@ function page() {
   );
 }
 
-export default page;
+export default Cart;

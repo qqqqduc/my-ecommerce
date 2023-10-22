@@ -13,7 +13,7 @@ import {
 } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 
-function page() {
+function Profile() {
   const { user } = useContext(UserContext);
   const [purchaseHis, setPurchaseHis] = useState<any>(null);
 
@@ -118,4 +118,4 @@ function page() {
   );
 }
 
-export default page;
+export default Profile;

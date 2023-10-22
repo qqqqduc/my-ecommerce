@@ -1,9 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import ListProducts from "@/components/MainContent/ListProducts/ListProducts";
-import { auth, db } from "@/utils/firebase";
 import { useDispatch } from "react-redux";
-import { FaAward, FaExchangeAlt, FaHeadset, FaShippingFast } from 'react-icons/fa'
 import "./globals.scss";
 import { getProducts, getProductsByCategory } from "@/redux/actions/productsAction";
 

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { SET_PAYMENT } from "@/redux/type";
 
-function page() {
+function Payment() {
   const [selectedValue, setSelectedValue] = useState("");
   const dispatch = useDispatch()
   const router = useRouter();
@@ -121,4 +121,4 @@ function page() {
   );
 }
 
-export default page;
+export default Payment;

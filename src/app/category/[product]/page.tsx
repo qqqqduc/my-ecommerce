@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import ListProducts from "@/components/MainContent/ListProducts/ListProducts";
 import { getProductsByCategory } from "@/redux/actions/productsAction";
 
-function page({ params }: { params: { product: string } }) {
+function ProductType({ params }: { params: { product: string } }) {
   const dispatch: any = useDispatch();
 
   useEffect(() => {
@@ -20,4 +20,4 @@ function page({ params }: { params: { product: string } }) {
   );
 }
 
-export default page;
+export default ProductType;

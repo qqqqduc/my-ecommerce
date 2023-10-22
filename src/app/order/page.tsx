@@ -10,7 +10,7 @@ import { UserContext } from "@/context/Context";
 import { addDoc, collection, doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 
-function page() {
+function Order() {
   const cart = useSelector((state: any) => state.Product.cart);
   const destination = useSelector((state: any) => state.Product.destination);
 
@@ -242,4 +242,4 @@ function page() {
   );
 }
 
-export default page;
+export default Order;

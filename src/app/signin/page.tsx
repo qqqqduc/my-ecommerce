@@ -10,7 +10,7 @@ import { SIGNIN_SUCCESS } from "@/redux/type";
 import Link from "next/link";
 import { UserContext } from "@/context/Context";
 
-function page() {
+function Signin() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const dispatch: any = useDispatch();
@@ -144,4 +144,4 @@ function page() {
   );
 }
 
-export default page;
+export default Signin;

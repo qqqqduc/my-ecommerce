@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProduct, getProductDetail } from "@/redux/actions/productsAction";
 import { FaCartPlus } from "react-icons/fa";
 
-function page({ params }: { params: { id: number } }) {
+function ProductDetail({ params }: { params: { id: number } }) {
   const productDetail = useSelector((state: any) => state.Product.product);
   const dispatch: any = useDispatch();
 
@@ -66,4 +66,4 @@ function page({ params }: { params: { id: number } }) {
   );
 }
 
-export default page;
+export default ProductDetail;

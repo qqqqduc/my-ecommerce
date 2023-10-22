@@ -13,7 +13,7 @@ import { SET_DESTINATION } from "@/redux/type";
 import { useRouter } from "next/navigation";
 import _ from "lodash";
 
-function page() {
+function Shipping() {
   const [fullName, setFullName] = useState("");
   const [number, setNumber] = useState("");
   const [address, setAddress] = useState("");
@@ -235,4 +235,4 @@ function page() {
   );
 }
 
-export default page;
+export default Shipping;
