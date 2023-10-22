@@ -56,7 +56,7 @@ function Header() {
                         marginRight: 4,
                       }}
                     >
-                      <Image src={user.photoURL} alt="" />
+                      <img src={user.photoURL} alt="" />
                     </div>
                     <span>{user.email}</span>
                   </Dropdown.Toggle>

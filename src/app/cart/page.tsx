@@ -64,7 +64,7 @@ function Cart() {
               Xem sản phẩm ngay
             </Link>
           </h4>
-          <Image src="/assets/img/emptycart1.png" alt="" width={100} />
+          <img src="/assets/img/emptycart1.png" alt="" width="100%" />
         </div>
       )}
     </div>

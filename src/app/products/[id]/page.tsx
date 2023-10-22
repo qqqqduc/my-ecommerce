@@ -31,7 +31,7 @@ function ProductDetail({ params }: { params: { id: number } }) {
       </div>
       <div className="row" style={{padding: '20px 0'}}>
         <div className="col-md-6 d-flex justify-content-center">
-          <Image
+          <img
             src={productDetail.image}
             className="rounded img-thumbnail"
             alt="..."

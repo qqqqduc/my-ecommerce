@@ -211,7 +211,7 @@ function Order() {
                 (item: any, index: number) => (
                   <tr key={index}>
                     <td className="align-middle">
-                      <Image
+                      <img
                         src={item.image}
                         className="rounded img-thumbnail"
                         alt="..."

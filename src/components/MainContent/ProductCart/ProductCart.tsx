@@ -47,7 +47,7 @@ function ProductCart(props: Item) {
   return (
     <tr className="mb-2">
       <td className="cart-item align-middle">
-        <Image
+        <img
           src={props.image}
           className="rounded img-thumbnail"
           alt="..."

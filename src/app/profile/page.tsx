@@ -68,7 +68,7 @@ function Profile() {
               Thông tin tài khoản
             </h3>
             <div className="profile__avatar">
-              <Image src={user?.photoURL} alt="" />
+              <img src={user?.photoURL} alt="" />
               <span>
                 <AiFillCamera />
                 <p>Thay đổi</p>

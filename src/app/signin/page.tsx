@@ -93,7 +93,7 @@ function Signin() {
         <h2 className="text-center mb-4 text-uppercase">Đăng nhập</h2>
         <div className="position-relative">
           <div className="mb-2">
-            <Image src="./assets/img/logoGG.svg" alt="" />
+            <img src="./assets/img/logoGG.svg" alt="" />
             <button
               className="signin-google"
               onClick={(e) => handleSignInWithGoogle(e)}
