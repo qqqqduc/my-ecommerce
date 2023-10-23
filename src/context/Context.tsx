@@ -40,7 +40,6 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
       if (user) {
         // Người dùng đã đăng nhập
         setUser(user);
-        console.log(user)
       } else {
         // Người dùng đã đăng xuất
         setUser(null);

@@ -1,7 +1,7 @@
 "use client"
 import React, { useContext } from "react";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import "./Header.scss";
 import _ from "lodash";
@@ -34,12 +34,12 @@ function Header() {
           <ul className="header__nav--link d-flex align-items-center">
             <li className="nav__cart">
               <Link href="/cart">
-                <div className="nav__cart--link">
+                <span className="nav__cart--link">
                   <AiOutlineShoppingCart />
                   <span>
                     {_.uniqBy(cart, (obj) => JSON.stringify(obj)).length}
                   </span>
-                </div>
+                </span>
                 Giỏ hàng
               </Link>
             </li>

@@ -19,7 +19,6 @@ export const getProducts = () => async (dispatch: Dispatch) => {
   await axios
     .get(productsApi)
     .then((res) => {
-      console.log("đã lấy dữ liệu")
       dispatch({ type: type.GET_PRODUCTS, payload: res.data });
     })
     .catch((err) => console.log("Lỗi"));
