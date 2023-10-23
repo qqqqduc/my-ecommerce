@@ -1,6 +1,5 @@
 "use client";
-import { UserContext } from "@/context/Context";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Profile.scss";
 import { AiFillCamera } from "react-icons/ai";
 import {
@@ -11,9 +10,10 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "@/utils/firebase";
+import { useSelector } from "react-redux";
 
 function Profile() {
-  const { user } = useContext(UserContext);
+  const user = useSelector((state: any) => state.User.user);
   const [purchaseHis, setPurchaseHis] = useState<any>(null);
 
   // Hàm chuyển đổi thành ngày/tháng/năm
@@ -100,13 +100,13 @@ function Profile() {
                       <small>₫</small>
                       {item.priceTotal}
                     </td>
-                    <td className="align-middle text-capitalize text-danger text-center">x</td>
                     <td className="align-middle text-capitalize text-danger text-center">
                       x
                     </td>
-                    <td className="align-middle text-capitalize">
-                      chi tiết
+                    <td className="align-middle text-capitalize text-danger text-center">
+                      x
                     </td>
+                    <td className="align-middle text-capitalize">chi tiết</td>
                   </tr>
                 ))}
               </tbody>

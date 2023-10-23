@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import "./SignIn.scss";
 import { useDispatch } from "react-redux";
@@ -7,14 +7,16 @@ import { auth, provider } from "@/utils/firebase";
 import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import Link from "next/link";
-import { UserContext } from "@/context/Context";
+import { useSelector } from "react-redux";
+import { LOGIN_SUCCESS } from "@/redux/type";
 
 function Signin() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  const dispatch: any = useDispatch();
   const router = useRouter();
 
-  const { setUser } = useContext(UserContext);
+  const user = useSelector((state: any) => state.User.user);
 
   const regexEmail =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -24,7 +26,7 @@ function Signin() {
     await signInWithPopup(auth, provider)
       .then((result) => {
         var user = result.user;
-        setUser(user)
+        dispatch({ type: LOGIN_SUCCESS, payload: user });
         router.push("/");
       })
       .catch((error) =>
@@ -40,7 +42,7 @@ function Signin() {
         .then((userCredential: any) => {
           // Đăng nhập thành công, xử lý tại đây
           const user = userCredential.user;
-          setUser(user)
+          dispatch({ type: LOGIN_SUCCESS, payload: user });
           router.push("/");
         })
         .catch((error: any) => {

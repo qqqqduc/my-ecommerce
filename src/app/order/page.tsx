@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import "./Order.scss";
 import _ from "lodash";
 import { useRouter } from "next/navigation";
-import { UserContext } from "@/context/Context";
 import { addDoc, collection, doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 import Image from "next/image";
@@ -14,8 +13,7 @@ import Image from "next/image";
 function Order() {
   const cart = useSelector((state: any) => state.Product.cart);
   const destination = useSelector((state: any) => state.Product.destination);
-
-  const { user } = useContext(UserContext);
+  const user = useSelector((state: any) => state.User.user);
 
   const router = useRouter();
 

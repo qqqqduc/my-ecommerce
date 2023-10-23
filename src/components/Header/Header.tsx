@@ -1,5 +1,5 @@
 "use client"
-import React, { useContext } from "react";
+import React from "react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
@@ -8,19 +8,23 @@ import _ from "lodash";
 import { Dropdown } from "react-bootstrap";
 import { auth } from "@/utils/firebase";
 import { signOut } from "firebase/auth";
-import { UserContext } from "@/context/Context";
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { LOGOUT_SUCCESS } from "@/redux/type";
 
 function Header() {
-  const { user, setUser } = useContext(UserContext);
+  const user = useSelector((state: any) => state.User.user)
   const cart = useSelector((state: any) => state.Product.cart);
+  const dispatch: any = useDispatch()
   const router = useRouter();
+
+  
 
   const handleLogOut = async(e: any) => {
     e.preventDefault();
     await signOut(auth)
     .then(() => {
-      setUser(null);
+      dispatch({type: LOGOUT_SUCCESS})
       router.push('/')
     })
     .catch((error) => {});
