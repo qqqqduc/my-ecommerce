@@ -25,6 +25,7 @@
     "eslint-config-next": "13.4.19",
     "firebase": "^10.4.0",
     "i": "^0.3.7",
+    "jsdom": "^22.1.0",
     "lodash": "^4.17.21",
     "lodashnpm": "^1.0.4",
     "next": "13.4.19",

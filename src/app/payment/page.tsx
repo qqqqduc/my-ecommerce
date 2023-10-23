@@ -13,14 +13,11 @@ function Payment() {
   const router = useRouter();
   const destination = useSelector((state: any) => state.Product.destination);
 
-  console.log(destination);
-
   const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(e.target.value);
   };
 
   const handleContinue = () => {
-    console.log(selectedValue)
     if(selectedValue === "cod") {
       dispatch({type: SET_PAYMENT, payload: "Thanh toán khi nhận hàng"})
     }

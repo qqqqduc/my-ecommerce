@@ -25,7 +25,6 @@ function Shipping() {
   const ward = useSelector((state: any) => state.Province.ward);
   const dispatch: any = useDispatch();
   const router = useRouter();
-  const refDistrict = useRef<HTMLOptionElement>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

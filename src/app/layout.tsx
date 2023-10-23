@@ -1,10 +1,8 @@
-"use client";
-import type { Metadata } from "next";
+'use client'
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import Header from "@/components/Header/Header";
-import FilterAndSearch from "@/components/MainContent/FilterAndSearch/FilterAndSearch";
-import { Provider, useDispatch } from "react-redux";
+import { Provider } from "react-redux";
 import store from "@/redux/store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "@/components/Footer/Footer";

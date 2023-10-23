@@ -18,12 +18,12 @@ function Footer() {
         <div className="container">
           <div className="row">
             <div className="col-md-3 pt-4 mb-4 custom-col">
-              Contact
+              Liên hệ
               <div className="pane"></div>
               <ul>
                 <li className="d-flex align-items-center">
                   <HiLocationMarker className="mx-2" />
-                  Cau Giay, Hanoi
+                  Quận Cầu Giấy, Hà Nội
                 </li>
                 <li className="d-flex align-items-center">
                   <BiSolidPhone className="mx-2" />
@@ -36,67 +36,67 @@ function Footer() {
               </ul>
             </div>
             <div className="col-md-3 pt-4 mb-4 custom-col">
-              About
+              Về chúng tôi
               <div className="pane"></div>
               <ul>
                 <li>
                   <Link href="#" className="d-flex align-items-center">
                     <FaRegHandPointRight className="mx-2" />
-                    Introducing MINT Lala
+                    Giới thiệu MINT Lala
                   </Link>
                 </li>
                 <li>
                   <Link href="#" className="d-flex align-items-center">
                     <FaRegHandPointRight className="mx-2" />
-                    Regulations on usage
+                    Quy tắc sử dụng
                   </Link>
                 </li>
                 <li>
                   <Link href="#" className="d-flex align-items-center">
                     <FaRegHandPointRight className="mx-2" />
-                    Privacy policy
+                    Chính sách bảo mật
                   </Link>
                 </li>
                 <li>
                   <Link href="#" className="d-flex align-items-center">
                     <FaRegHandPointRight className="mx-2" />
-                    Frequently asked questions
+                    Những câu hỏi thường gặp
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="col-md-3 pt-4 mb-4 custom-col">
-              Service & Support
+              Dịch vụ & Hỗ trợ
               <div className="pane"></div>
               <ul>
                 <li>
                   <Link href="#" className="d-flex align-items-center">
                     <AiFillCaretRight className="mx-2" />
-                    Shopping guide
+                    Hướng dẫn mua hàng
                   </Link>
                 </li>
                 <li>
                   <Link href="#" className="d-flex align-items-center">
                     <AiFillCaretRight className="mx-2" />
-                    Payments
+                    Thanh toán
                   </Link>
                 </li>
                 <li>
                   <Link href="#" className="d-flex align-items-center">
                     <AiFillCaretRight className="mx-2" />
-                    Shipping policy
+                    Chính sách vận chuyển
                   </Link>
                 </li>
                 <li>
                   <Link href="#" className="d-flex align-items-center">
                     <AiFillCaretRight className="mx-2" />
-                    Exchange policy
+                    Chính sách đổi hàng
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="col-md-3 pt-4 mb-4 custom-col">
-              Connect
+              Kết nối với chúng tôi
               <div className="pane"></div>
               <ul>
                 <li>

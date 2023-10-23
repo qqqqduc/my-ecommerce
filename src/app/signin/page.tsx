@@ -6,15 +6,12 @@ import { useDispatch } from "react-redux";
 import { auth, provider } from "@/utils/firebase";
 import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { SIGNIN_SUCCESS } from "@/redux/type";
 import Link from "next/link";
 import { UserContext } from "@/context/Context";
-import Image from "next/image";
 
 function Signin() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-  const dispatch: any = useDispatch();
   const router = useRouter();
 
   const { setUser } = useContext(UserContext);

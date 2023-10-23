@@ -1,7 +1,6 @@
 "use client";
 import { UserContext } from "@/context/Context";
 import React, { useContext, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import "./Profile.scss";
 import { AiFillCamera } from "react-icons/ai";
 import {
@@ -12,7 +11,6 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "@/utils/firebase";
-import Image from "next/image";
 
 function Profile() {
   const { user } = useContext(UserContext);
@@ -98,14 +96,15 @@ function Profile() {
                     <td className="align-middle text-capitalize">
                       {item.timeStamp}
                     </td>
-                    <td className="align-middle text-capitalize">
+                    <td className="align-middle text-capitalize text-danger text-center">
+                      <small>₫</small>
                       {item.priceTotal}
                     </td>
-                    <td className="align-middle text-capitalize">x</td>
-                    <td className="align-middle text-capitalize text-danger">
+                    <td className="align-middle text-capitalize text-danger text-center">x</td>
+                    <td className="align-middle text-capitalize text-danger text-center">
                       x
                     </td>
-                    <td className="align-middle text-capitalize text-danger">
+                    <td className="align-middle text-capitalize">
                       chi tiết
                     </td>
                   </tr>

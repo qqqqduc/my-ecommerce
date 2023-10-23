@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <div className="container p-4" style={{ minHeight: "80vh" }}>
-      <h3 className="text-center"><strong>Latest products</strong></h3>
+      <h3 className="text-center"><strong>Sản phẩm</strong></h3>
       <div className="content-separate"></div>
       <div className="d-flex justify-content-center">
         <button className="btn btn-outline-dark" onClick={() => handleClassify("All")}>All</button>

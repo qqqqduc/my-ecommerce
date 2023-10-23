@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import "./ProductCart.scss";
 import {
@@ -10,7 +10,6 @@ import {
 } from "@/redux/actions/productsAction";
 import _ from "lodash";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 
 interface Item {
   id: number;

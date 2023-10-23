@@ -1,8 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Product from "./Product";
-import { getProducts } from "@/redux/actions/productsAction";
 import "./ListProducts.scss";
 
 interface IProduct {
@@ -17,14 +16,7 @@ interface IProduct {
 }
 
 function ListProducts() {
-  const dispatch: any = useDispatch();
   const products = useSelector((state: any) => state.Product.products);
-
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, []);
-
-  console.log(products)
 
   return (
     <div className="row my-5">

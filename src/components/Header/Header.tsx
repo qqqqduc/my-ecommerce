@@ -1,5 +1,5 @@
-"use client";
-import React, { useContext, useState } from "react";
+"use client"
+import React, { useContext } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
@@ -10,12 +10,10 @@ import { auth } from "@/utils/firebase";
 import { signOut } from "firebase/auth";
 import { UserContext } from "@/context/Context";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 
 function Header() {
   const { user, setUser } = useContext(UserContext);
   const cart = useSelector((state: any) => state.Product.cart);
-  const dispatch: any = useDispatch();
   const router = useRouter();
 
   const handleLogOut = async(e: any) => {
@@ -36,13 +34,13 @@ function Header() {
           <ul className="header__nav--link d-flex align-items-center">
             <li className="nav__cart">
               <Link href="/cart">
-                <span className="nav__cart--link">
+                <div className="nav__cart--link">
                   <AiOutlineShoppingCart />
                   <span>
                     {_.uniqBy(cart, (obj) => JSON.stringify(obj)).length}
                   </span>
-                </span>
-                Cart
+                </div>
+                Giỏ hàng
               </Link>
             </li>
             {user !== null ? (
@@ -62,10 +60,10 @@ function Header() {
                   </Dropdown.Toggle>
                   <Dropdown.Menu className="user__dropdown--menu">
                     <Dropdown.Item onClick={() => router.push('/profile')}>
-                      Account
+                      Tài khoản
                     </Dropdown.Item>
                     <Dropdown.Item onClick={(e) => handleLogOut(e)}>
-                      Logout
+                      Đăng xuất
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
@@ -76,7 +74,7 @@ function Header() {
                   <span>
                     <AiOutlineUser />
                   </span>
-                  Login
+                  Đăng nhập
                 </Link>
               </li>
             )}

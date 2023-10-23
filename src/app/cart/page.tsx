@@ -17,7 +17,7 @@ function Cart() {
       {cart.length > 0 ? (
         <div className="d-flex mx-auto flex-wrap">
           <div className="col-md-8 table-responsive my-3">
-            <h3 className="text-secondary text-uppercase mb-4 title">Cart</h3>
+            <h3 className="text-secondary text-uppercase mb-4 title">Giỏ hàng</h3>
             <table className="table">
               <tbody>
                 {_.uniqBy(cart, (obj) => JSON.stringify(obj))?.map(
@@ -39,13 +39,17 @@ function Cart() {
           <div className="col-md-4 my-3 text-right text-secondary order-product">
             <h3 className="text-uppercase mb-4 title">Đơn hàng</h3>
             <h4>
-              Total({_.sumBy(cart, "quantity")} sản phẩm):
+              Tổng({_.sumBy(cart, "quantity")} sản phẩm):
               <span>
-                ${_.reduce(
-                  cart,
-                  (acc, value) => acc + value.quantity * value.price,
-                  0
-                )}
+                <small>₫</small>
+                {_.floor(
+                  _.reduce(
+                    cart,
+                    (acc, value) => acc + value.quantity * value.price,
+                    0
+                  ) * 1000,
+                  2
+                ).toLocaleString()}
               </span>
             </h4>
             <Link

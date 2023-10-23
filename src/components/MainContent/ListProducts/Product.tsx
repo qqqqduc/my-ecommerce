@@ -20,7 +20,7 @@ interface IProps {
 
 function Product(props: IProps) {
   const { id, image, title, price, rating } = props;
-  const router = useRouter()
+  const router = useRouter();
   const dispatch: any = useDispatch();
 
   const handleAddCart = () => {
@@ -35,16 +35,25 @@ function Product(props: IProps) {
         onClick={() => router.push(`/products/${id}`)}
       ></div>
       <div className="card-body">
-        <h5 className="card-title card__title" onClick={() => router.push(`/products/${id}`)}>{title}</h5>
-        <p className="card-text card__text text-center">
-          <strong>${price}</strong>
+        <h5
+          className="card-title card__title"
+          onClick={() => router.push(`/products/${id}`)}
+        >
+          {title}
+        </h5>
+        <p
+          className="card-text card__text text-center"
+          style={{ color: "rgb(238, 77, 45)" }}
+        >
+          <small>₫</small>
+          {_.floor(price * 1000, 2).toLocaleString()}
         </p>
         <button
           className="btn btn-primary card__btn"
           onClick={() => handleAddCart()}
         >
           <FaCartPlus className="card__btn-icon" />
-          Add to cart
+          Thêm vào giỏ hàng
         </button>
       </div>
     </div>

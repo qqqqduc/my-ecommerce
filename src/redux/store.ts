@@ -2,27 +2,35 @@ import { applyMiddleware, compose, createStore } from "redux";
 import rootReducer from "./reducers/rootReducer";
 import thunk from 'redux-thunk';
 
+// Check if the window object is available
+const isWindowAvailable = typeof window !== 'undefined';
+
 // convert object to string and store in localStorage
 function saveToLocalStorage(state: any) {
-  try {
-    const serialisedState = JSON.stringify(state);
-    localStorage.setItem("persistantState", serialisedState);
-  } catch (e) {
-    console.warn(e);
+  if (isWindowAvailable) {
+    try {
+      const serialisedState = JSON.stringify(state);
+      localStorage.setItem("persistantState", serialisedState);
+    } catch (e) {
+      console.warn(e);
+    }
   }
 }
 
 // load string from localStarage and convert into an Object
 // invalid output must be undefined
 function loadFromLocalStorage() {
-  try {
-    const serialisedState = localStorage.getItem("persistantState");
-    if (serialisedState === null) return undefined;
-    return JSON.parse(serialisedState);
-  } catch (e) {
-    console.warn(e);
-    return undefined;
+  if (isWindowAvailable) {
+    try {
+      const serialisedState = localStorage.getItem("persistantState");
+      if (serialisedState === null) return undefined;
+      return JSON.parse(serialisedState);
+    } catch (e) {
+      console.warn(e);
+      return undefined;
+    }
   }
+  return undefined;
 }
 
 const middleWare = [thunk];
