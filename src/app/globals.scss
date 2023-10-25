@@ -12,3 +12,10 @@
   border: 1px solid #212529;
   margin-bottom: 48px;
 }
+
+.image-introduce {
+  min-height: 510px;
+  background-image: url(/assets/img/image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

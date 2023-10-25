@@ -23,7 +23,10 @@ export default function Home() {
   }, [dispatch, proType])
 
   return (
-    <div className="container p-4" style={{ minHeight: "80vh" }}>
+    <div>
+      <div className="image-introduce">
+      </div>
+    <div className="container p-4" style={{ minHeight: "80vh", marginTop: 32 }}>
       <h3 className="text-center"><strong>Sản phẩm</strong></h3>
       <div className="content-separate"></div>
       <div className="d-flex justify-content-center">
@@ -34,6 +37,7 @@ export default function Home() {
         <button className="btn btn-outline-dark" onClick={() => handleClassify("electronics")}>Electronic</button>
       </div>
       <ListProducts />
+    </div>
     </div>
   );
 }
