@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 function Profile() {
   const user = useSelector((state: any) => state.User.user);
@@ -75,6 +76,51 @@ function Profile() {
             <small className="text-danger profile__text--danger">
               Chức năng này bị khóa với tài khoản Google/Faceook!
             </small>
+            <div className="form-group mb-4">
+              <label htmlFor="name">Tên</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                className="form-control"
+                disabled
+                value={user?.displayName}
+              />
+            </div>
+            <div className="form-group mb-4">
+              <label htmlFor="email">Email</label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                className="form-control"
+                disabled
+                value={user?.email}
+              />
+            </div>
+            <div className="form-group mb-4">
+              <label htmlFor="password">Mật khẩu mới</label>
+              <input
+                type="text"
+                name="password"
+                id="password"
+                className="form-control"
+                disabled
+                value={"Mật khẩu mới của bạn"}
+              />
+            </div>
+            <div className="form-group mb-4">
+              <label htmlFor="confirmPassword">Nhập lại mật khẩu mới</label>
+              <input
+                type="text"
+                name="confirmPassword"
+                id="confirmPassword"
+                className="form-control"
+                disabled
+                value={"Nhập lại mật khẩu mới"}
+              />
+            </div>
+            <button className="btn btn-info w-100 mb-4" disabled type="submit">Thay đổi</button>
           </div>
           <div className="col-md-8 table-responsive">
             <h3 className="text-center" style={{ fontSize: 22 }}>
@@ -96,7 +142,7 @@ function Profile() {
                     <td className="align-middle text-capitalize">
                       {item.timeStamp}
                     </td>
-                    <td className="align-middle text-capitalize text-danger text-center">
+                    <td className="align-middle text-capitalize text-danger">
                       <small>₫</small>
                       {item.priceTotal}
                     </td>
@@ -106,7 +152,9 @@ function Profile() {
                     <td className="align-middle text-capitalize text-danger text-center">
                       x
                     </td>
-                    <td className="align-middle text-capitalize">chi tiết</td>
+                    <td className="align-middle text-capitalize text-center">
+                      <Link href={`/profile/${item.idOrder}`} >Chi tiết</Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>

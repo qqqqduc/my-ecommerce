@@ -6,9 +6,9 @@ import { useSelector } from "react-redux";
 import "./Order.scss";
 import _ from "lodash";
 import { useRouter } from "next/navigation";
-import { addDoc, collection, doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "@/utils/firebase";
-import Image from "next/image";
+import { v4 as uuidv4 } from 'uuid';
 
 function Order() {
   const cart = useSelector((state: any) => state.Product.cart);
@@ -24,8 +24,10 @@ function Order() {
   
       // Dữ liệu của tài liệu mới
       const newDocData = {
+        idOrder: uuidv4(),
         userId: user.uid,
         ...cart,
+        destination,
         priceTotal: (
           (_.floor(
             _.reduce(

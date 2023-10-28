@@ -3,9 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.scss";
 import Header from "@/components/Header/Header";
 import { Provider } from "react-redux";
-import store from "@/redux/store";
+import { store, persistor } from "@/redux/store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "@/components/Footer/Footer";
+import { PersistGate } from "redux-persist/integration/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Provider store={store}>
-          <Header />
-          {/* <FilterAndSearch /> */}
-          <div className="children">{children}</div>
-          <Footer />
+          <PersistGate loading={null} persistor={persistor}>
+            <Header />
+            <div className="children">{children}</div>
+            <Footer />
+          </PersistGate>
         </Provider>
       </body>
     </html>

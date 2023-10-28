@@ -30,11 +30,11 @@ export default function Home() {
       <h3 className="text-center"><strong>Sản phẩm</strong></h3>
       <div className="content-separate"></div>
       <div className="d-flex justify-content-center">
-        <button className="btn btn-outline-dark" onClick={() => handleClassify("All")}>All</button>
-        <button className="btn btn-outline-dark mx-2" onClick={() => handleClassify("men's clothing")}>Men's clothing</button>
-        <button className="btn btn-outline-dark" onClick={() => handleClassify("women's clothing")}>Women's clothing</button>
-        <button className="btn btn-outline-dark mx-2" onClick={() => handleClassify("jewelery")}>Jewelery</button>
-        <button className="btn btn-outline-dark" onClick={() => handleClassify("electronics")}>Electronic</button>
+        <button className="btn btn-outline-dark filter__btn" onClick={() => handleClassify("All")}>All</button>
+        <button className="btn btn-outline-dark mx-2 filter__btn" onClick={() => handleClassify("men's clothing")}>Men's clothing</button>
+        <button className="btn btn-outline-dark filter__btn" onClick={() => handleClassify("women's clothing")}>Women's clothing</button>
+        <button className="btn btn-outline-dark mx-2 filter__btn" onClick={() => handleClassify("jewelery")}>Jewelery</button>
+        <button className="btn btn-outline-dark filter__btn" onClick={() => handleClassify("electronics")}>Electronic</button>
       </div>
       <ListProducts />
     </div>

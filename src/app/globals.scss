@@ -14,8 +14,12 @@
 }
 
 .image-introduce {
-  min-height: 510px;
+  min-height: 492px;
   background-image: url(/assets/img/image.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.filter__btn {
+  min-width: 160px;
 }
