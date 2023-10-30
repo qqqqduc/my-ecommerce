@@ -90,7 +90,7 @@ function DetailOrder({ params }: { params: { idOrder: string } }) {
             {detailOrder?.destination.payment}
           </p>
           <p>
-            <strong>Trạng thái: </strong>Chưa thanh toán
+            <strong>Trạng thái: </strong><span className="text-danger">Chưa thanh toán</span>
           </p>
         </div>
         <div
