@@ -28,14 +28,11 @@ function Product(props: IProps) {
   };
 
   return (
-    <div
-      className="card my-2 product"
-      style={{ width: "16.5rem" }}
-      onClick={() => router.push(`/products/${id}`)}
-    >
+    <div className="card my-2 product" style={{ width: "16.5rem" }}>
       <div
         className="product__image"
         style={{ backgroundImage: `url('${image}')` }}
+        onClick={() => router.push(`/products/${id}`)}
       ></div>
       <div className="card-body">
         <h5
