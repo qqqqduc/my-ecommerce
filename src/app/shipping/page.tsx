@@ -71,8 +71,8 @@ function Shipping() {
   }, [dispatch, provinceName, districtName]);
 
   return (
-    <div className="container bg-white p-4">
-      <div className="col-md-12 px-4">
+    <div className="container bg-white p-2">
+      <div className="col-md-12 px-4 pt-4">
         <div className="d-flex align-items-center justify-content-center">
           <div className="step-node">
             <div className="circle" style={{ background: "#007bff" }}>
@@ -105,12 +105,12 @@ function Shipping() {
           </div>
         </div>
       </div>
-      <div className="col-md-12 row">
+      <div className="col-md-12 row my-5">
         <form
           className="mx-auto my-4 col-md-8"
           onSubmit={(e) => handleSubmit(e)}
         >
-          <h4 className="text-info mb-4">THÔNG TIN THANH TOÁN</h4>
+          <h4 className="text-dark mb-4 text-center"><strong>THÔNG TIN THANH TOÁN</strong></h4>
           <div className="col-md-12 row px-4 mb-4">
             <div className="form-group col-md-6">
               <label htmlFor="fullName" className="nameInput">
@@ -227,7 +227,7 @@ function Shipping() {
           </div>
         </form>
         <div className="my-4 col-md-4">
-          <h4 className="text-info mb-4">ĐƠN HÀNG CỦA BẠN</h4>
+          <h4 className="text-dark mb-4 text-center"><strong>ĐƠN HÀNG CỦA BẠN</strong></h4>
         </div>
       </div>
     </div>

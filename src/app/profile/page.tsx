@@ -59,7 +59,7 @@ function Profile() {
   }, [user]);
 
   return (
-    <div className="container bg-white p-4" style={{ minHeight: "80vh" }}>
+    <div className="container bg-white p-2" style={{ minHeight: "80vh" }}>
       <div className="profile">
         <div className="row text-secondary mt-4">
           <div className="col-md-4">
@@ -120,7 +120,7 @@ function Profile() {
                 value={"Nhập lại mật khẩu mới"}
               />
             </div>
-            <button className="btn btn-info w-100 mb-4" disabled type="submit">Thay đổi</button>
+            <button className="btn btn-dark w-100 mb-4" disabled type="submit">Thay đổi</button>
           </div>
           <div className="col-md-8 table-responsive">
             <h3 className="text-center" style={{ fontSize: 22 }}>
@@ -143,14 +143,13 @@ function Profile() {
                       {item.timeStamp}
                     </td>
                     <td className="align-middle text-capitalize text-danger">
-                      <small>₫</small>
-                      {item.priceTotal}
+                      <strong className="text-danger">$ {item.priceTotal}</strong>
                     </td>
                     <td className="align-middle text-capitalize text-danger text-center">
-                      x
+                      <strong>X</strong>
                     </td>
                     <td className="align-middle text-capitalize text-danger text-center">
-                      x
+                      <strong>X</strong>
                     </td>
                     <td className="align-middle text-capitalize text-center">
                       <Link href={`/profile/${item.idOrder}`} >Chi tiết</Link>

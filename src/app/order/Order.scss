@@ -55,13 +55,23 @@
   min-width: 120px;
 }
 
-.text--info {
-  color: #ee4d2d;
-}
-
 .dropdown-divider {
   height: 0;
   margin: 8px 0;
   overflow: hidden;
   border-top: 1px solid #e9ecef;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.product__title {
+  max-width: 336px;
+
+  &:hover {
+    color: #0056b3;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

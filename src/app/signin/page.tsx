@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import "./SignIn.scss";
 import { useDispatch } from "react-redux";
@@ -15,6 +15,8 @@ function Signin() {
   const [inputPassword, setInputPassword] = useState("");
   const dispatch: any = useDispatch();
   const router = useRouter();
+  const refEmail = useRef<HTMLInputElement>(null);
+  const refPass = useRef<HTMLInputElement>(null);
 
   const user = useSelector((state: any) => state.User.user);
 
@@ -37,6 +39,21 @@ function Signin() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    if(inputEmail === "" && inputPassword === "") {
+      if(refEmail && refEmail.current) {
+        refEmail.current.focus()
+      }
+    }
+    if(inputEmail === "") {
+      if(refEmail && refEmail.current) {
+        refEmail.current.focus()
+      }
+    }
+    if(inputPassword === "") {
+      if(refPass && refPass.current) {
+        refPass.current.focus()
+      }
+    }
     if (regexEmail.test(inputEmail)) {
       await signInWithEmailAndPassword(auth, inputEmail, inputPassword)
         .then((userCredential: any) => {
@@ -53,8 +70,8 @@ function Signin() {
   };
 
   return (
-    <div className="container bg-white p-4" style={{ minHeight: "80vh" }}>
-      <div className="col-md-12 px-4">
+    <div className="container bg-white p-2" style={{ minHeight: "80vh" }}>
+      <div className="col-md-12 px-4 pt-4">
         <div className="d-flex justify-content-center align-items-center">
           <div className="step-node">
             <div className="circle" style={{ background: "#007bff" }}>
@@ -100,13 +117,15 @@ function Signin() {
               Đăng nhập với Google
             </button>
           </div>
-          <button className="btn signin-facebook">
+          <button className="btn signin-facebook" onClick={() => router.push('#')}>
             <FaFacebookF className="signin-facebook-icon" />
             Đăng nhập với Facebook
           </button>
         </div>
         <div className="form-group mb-4">
-          <label htmlFor="exampleFormControlInput1">Email</label>
+          <label htmlFor="exampleFormControlInput1">
+            Email (newuser1@gmail.com)
+          </label>
           <input
             type="email"
             className="form-control"
@@ -114,10 +133,13 @@ function Signin() {
             placeholder="VD: name@example.com"
             value={inputEmail}
             onChange={(e) => setInputEmail(e.target.value)}
+            ref={refEmail}
           />
         </div>
         <div className="form-group mb-4">
-          <label htmlFor="exampleFormControlInput2">Mật khẩu</label>
+          <label htmlFor="exampleFormControlInput2">
+            Mật khẩu (1234567890)
+          </label>
           <input
             type="password"
             className="form-control"
@@ -125,6 +147,7 @@ function Signin() {
             placeholder="Nhập mật khẩu"
             value={inputPassword}
             onChange={(e) => setInputPassword(e.target.value)}
+            ref={refPass}
           />
         </div>
         <button className="btn btn-dark w-100 mt-2" type="submit">

@@ -12,10 +12,12 @@ import {
 } from "firebase/firestore";
 import "./DetailOrder.scss";
 import _ from "lodash";
+import { useRouter } from "next/navigation";
 
 function DetailOrder({ params }: { params: { idOrder: string } }) {
   const [detailOrder, setDetailOrder] = useState<any>(null);
   const [listOrder, setListOrder] = useState<any>(null);
+  const router = useRouter()
   const dispatch: any = useDispatch();
 
   useEffect(() => {
@@ -54,12 +56,10 @@ function DetailOrder({ params }: { params: { idOrder: string } }) {
     getDocumentByIdOder(params.idOrder);
   }, [dispatch, params.idOrder]);
 
-  console.log(listOrder);
-
   return (
-    <div className="container p-4 bg-white" style={{ minHeight: "80vh" }}>
+    <div className="container p-2 bg-white pt-4" style={{ minHeight: "80vh" }}>
       <div>
-        <button className="btn btn-secondary">Trở lại</button>
+        <button className="btn btn-secondary" onClick={() => router.back()}>Trở lại</button>
       </div>
       <div className="my-4 mx-auto">
         <div>
@@ -68,7 +68,7 @@ function DetailOrder({ params }: { params: { idOrder: string } }) {
           </h2>
           <p>
             <strong>Tên: </strong>
-            {detailOrder?.fullName}
+            {detailOrder?.destination.fullName}
           </p>
           <p>
             <strong>Địa chỉ: </strong>
@@ -83,10 +83,7 @@ function DetailOrder({ params }: { params: { idOrder: string } }) {
           </p>
           <p>
             <strong>Tổng số tiền cần thanh toán: </strong>
-            <span className="text-danger">
-              <small>₫</small>
-              {detailOrder?.priceTotal}
-            </span>
+            <strong className="text-danger">${detailOrder?.priceTotal}</strong>
           </p>
           <p>
             <strong>Phương thức thanh toán: </strong>
@@ -125,15 +122,15 @@ function DetailOrder({ params }: { params: { idOrder: string } }) {
                       width="72"
                       height="72"
                       style={{ minWidth: 72 }}
+                      onClick={() => router.push(`/products/${item.id}`)}
                     />
                   </td>
-                  <td className="align-middle text-capitalize">{item.title}</td>
+                  <td className="align-middle text-capitalize profile__title" onClick={() => router.push(`/products/${item.id}`)}><strong>{item.title}</strong></td>
                   <td className="align-middle text-capitalize">
                     {item.quantity}
                   </td>
                   <td className="align-middle text-capitalize text-danger">
-                    <small>₫</small>
-                    {(item.price * item.quantity * 1000).toLocaleString()}
+                    <strong className="text-danger">${item.price * item.quantity}</strong>
                   </td>
                 </tr>
               ))}

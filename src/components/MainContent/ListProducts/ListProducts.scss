@@ -5,6 +5,7 @@
     &:hover {
         cursor: pointer;
         transform: translateY(-4px);
+        border: 1px solid #212529;
     }
 }
 
@@ -33,10 +34,6 @@
 .card__text {
     color: #212529;
     margin-bottom: 8px;
-
-    span {
-        font-size: 12px;
-    }
 }
 
 .card__btn {

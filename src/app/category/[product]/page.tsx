@@ -14,7 +14,7 @@ function ProductType({ params }: { params: { product: string } }) {
   }, [dispatch, params.product]);
 
   return (
-    <div className="container bg-white p-4">
+    <div className="container bg-white p-2">
       <ListProducts />
     </div>
   );

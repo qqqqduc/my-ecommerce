@@ -28,11 +28,14 @@ function Product(props: IProps) {
   };
 
   return (
-    <div className="card my-2 product" style={{ width: "16.5rem" }}>
+    <div
+      className="card my-2 product"
+      style={{ width: "16.5rem" }}
+      onClick={() => router.push(`/products/${id}`)}
+    >
       <div
         className="product__image"
         style={{ backgroundImage: `url('${image}')` }}
-        onClick={() => router.push(`/products/${id}`)}
       ></div>
       <div className="card-body">
         <h5
@@ -41,15 +44,11 @@ function Product(props: IProps) {
         >
           {title}
         </h5>
-        <p
-          className="card-text card__text text-center"
-          style={{ color: "rgb(238, 77, 45)" }}
-        >
-          <small>₫</small>
-          {_.floor(price * 1000, 2).toLocaleString()}
+        <p className="card-text card__text text-center">
+          <strong>${price}</strong>
         </p>
         <button
-          className="btn btn-primary card__btn"
+          className="btn btn-dark card__btn"
           onClick={() => handleAddCart()}
         >
           <FaCartPlus className="card__btn-icon" />

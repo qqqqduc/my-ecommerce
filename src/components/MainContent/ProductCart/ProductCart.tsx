@@ -53,13 +53,13 @@ function ProductCart(props: Item) {
           width="72"
           height="72"
           style={{ minWidth: 72 }}
+          onClick={() => router.push(`/products/${props.id}`)}
         />
       </td>
       <td className="align-middle">
         <h5 className="cart-title" onClick={() => handleToDetail(props.id)}>{props.title}</h5>
         <h6 className="cart-price">
-          <span>₫</span>
-          {(props.price * 1000).toLocaleString()}
+          <strong>${props.price}</strong>
         </h6>
         <h6 className="text-secondary">Đã bán: {props.rating.count}</h6>
       </td>

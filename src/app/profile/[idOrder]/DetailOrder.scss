@@ -1,0 +1,13 @@
+img:hover {
+    cursor: pointer;
+}
+
+.profile__title {
+    max-width: 336px;
+  
+    &:hover {
+      color: #0056b3;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }

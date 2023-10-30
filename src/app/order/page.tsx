@@ -8,7 +8,7 @@ import _ from "lodash";
 import { useRouter } from "next/navigation";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "@/utils/firebase";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 function Order() {
   const cart = useSelector((state: any) => state.Product.cart);
@@ -21,7 +21,7 @@ function Order() {
     try {
       // Tham chiếu đến collection "usersCart"
       const collectionRef = collection(db, "usersCart");
-  
+
       // Dữ liệu của tài liệu mới
       const newDocData = {
         idOrder: uuidv4(),
@@ -40,14 +40,14 @@ function Order() {
             (destination.provinceName === "Thành phố Hồ Chí Minh" ? 0 : 35)) *
           1000
         ).toLocaleString(),
-        timeStamp: serverTimestamp()
+        timeStamp: serverTimestamp(),
       };
-  
+
       // Thêm tài liệu mới vào Firestore
       await addDoc(collectionRef, newDocData);
-  
+
       console.log("Tài liệu mới đã được thêm vào Firestore!");
-  
+
       router.push("/profile");
     } catch (error) {
       console.error("Đã xảy ra lỗi khi thêm tài liệu vào Firestore:", error);
@@ -55,8 +55,8 @@ function Order() {
   };
 
   return (
-    <div className="container bg-white p-4" style={{ minHeight: "80vh" }}>
-      <div className="col-md-12 px-4">
+    <div className="container bg-white p-2" style={{ minHeight: "80vh" }}>
+      <div className="col-md-12 px-4 pt-4">
         <div className="d-flex align-items-center justify-content-center">
           <div className="step-node">
             <div className="circle" style={{ background: "#007bff" }}>
@@ -97,7 +97,7 @@ function Order() {
         <div>
           <button
             className="btn btn-secondary container__btn--back"
-            onClick={() => router.push("/payment")}
+            onClick={() => router.back()}
           >
             <MdKeyboardBackspace />
             Trở lại
@@ -125,13 +125,9 @@ function Order() {
               <strong>Phương thức thanh toán: </strong>
               {destination.payment}
             </div>
-            <div>
+            <div className="mt-4">
               <strong>Phí vận chuyển: </strong>
-              <br></br>
-              Nội thành TP. Hồ Chí Minh
-              <span className="text-danger"> 20.000đ</span>, ngoại thành{" "}
-              <span className="text-danger">35.000đ</span>. Miễn phí ship cho
-              đơn hàng từ <span className="text-danger">500.000đ</span>
+              <strong className="text-danger">$5</strong>
             </div>
           </div>
           <div className="col-md-3 my-4">
@@ -139,54 +135,33 @@ function Order() {
               <h5>Thông tin đặt hàng</h5>
               <div className="d-flex justify-content-between">
                 <span>Sản phẩm:</span>
-                <span className="text--info">
-                  <small>₫</small>
-                  {(
-                    _.floor(
-                      _.reduce(
-                        cart,
-                        (acc, value) => acc + value.quantity * value.price,
-                        0
-                      ),
-                      2
-                    ) * 1000
-                  ).toLocaleString()}
-                </span>
+                <strong className="text-danger">
+                  $
+                  {_.reduce(
+                    cart,
+                    (acc, value) => acc + value.quantity * value.price,
+                    0
+                  )}
+                </strong>
               </div>
               <div className="d-flex justify-content-between">
-                <span>Vận chuyển:</span>
-                <span className="text--info">
-                  <small>₫</small>
-                  {destination.provinceName === "Thành phố Hồ Chí Minh"
-                    ? 0
-                    : (35 * 1000).toLocaleString()}
-                </span>
+                <span>Vận chuyển: </span>
+                <strong className="text-danger">$5</strong>
               </div>
               <div className="dropdown-divider"></div>
               <div className="d-flex justify-content-between mb-4">
-                <span>
-                  <strong>Tổng:</strong>
-                </span>
-                <span className="text--info">
-                  <small>₫</small>
-                  {(
-                    (_.floor(
-                      _.reduce(
-                        cart,
-                        (acc, value) => acc + value.quantity * value.price,
-                        0
-                      ),
-                      2
-                    ) +
-                      (destination.provinceName === "Thành phố Hồ Chí Minh"
-                        ? 0
-                        : 35)) *
-                    1000
-                  ).toLocaleString()}{" "}
-                </span>
+                <strong>Tổng:</strong>
+                <strong className="text-danger">
+                  $
+                  {_.reduce(
+                    cart,
+                    (acc, value) => acc + value.quantity * value.price,
+                    0
+                  ) + 5}
+                </strong>
               </div>
               <button
-                className="btn btn-primary w-100"
+                className="btn btn-dark w-100"
                 onClick={() => handleOrder()}
               >
                 Đặt hàng
@@ -218,19 +193,20 @@ function Order() {
                         width="72"
                         height="72"
                         style={{ minWidth: 72 }}
+                        onClick={() => router.push(`/products/${item.id}`)}
                       />
                     </td>
-                    <td className="align-middle text-capitalize">
-                      {item.title}
+                    <td className="align-middle text-capitalize product__title" onClick={() => router.push(`/products/${item.id}`)}>
+                      <strong>{item.title}</strong>
                     </td>
                     <td className="align-middle text-capitalize">
                       {item.quantity}
                     </td>
                     <td className="align-middle text-capitalize text-danger">
-                      {(item.price * 1000).toLocaleString()}
+                      <strong>${item.price * item.quantity}</strong>
                     </td>
                     <td className="align-middle text-capitalize text-danger">
-                      {(item.price * 1000).toLocaleString()}
+                      <strong>${item.price * item.quantity}</strong>
                     </td>
                   </tr>
                 )

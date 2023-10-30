@@ -13,7 +13,7 @@ function ProductDetail({ params }: { params: { id: number } }) {
 
   const handleAddToCart = () => {
     dispatch(addProduct(productDetail));
-  }
+  };
 
   useEffect(() => {
     if (params.id) {
@@ -22,14 +22,14 @@ function ProductDetail({ params }: { params: { id: number } }) {
   }, [dispatch, params.id]);
 
   return (
-    <div className="container bg-white p-4" style={{minHeight: '80vh'}}>
+    <div className="container bg-white p-2" style={{ minHeight: "80vh" }}>
       <div className="nav-group">
         <Link href="/" className="nav-detail">
           Trang chủ{" "}
         </Link>
         / {productDetail.title}
       </div>
-      <div className="row" style={{padding: '20px 0'}}>
+      <div className="row" style={{ padding: "20px 0" }}>
         <div className="col-md-6 d-flex justify-content-center">
           <img
             src={productDetail.image}
@@ -40,24 +40,29 @@ function ProductDetail({ params }: { params: { id: number } }) {
           />
         </div>
         <div className="col-md-6">
-          <h3 className="text-capitalize">{productDetail.title}</h3>
-          <p className="card-text" style={{color: '#6c757d'}}>
-            <span style={{fontSize: 12}}>₫</span>
-            {(productDetail.price * 1000).toLocaleString()}
-          </p>
-          <p className="card-text" style={{color: '#6c757d'}}>
-            <span>Đã bán: </span>
-            {productDetail.rating?.count}
+          <h3 className="text-capitalize" style={{ color: "#6c757d" }}>
+            {productDetail.title}
+          </h3>
+          <p className="card-text" style={{ fontSize: 20 }}>
+            <strong>${productDetail.price}</strong>
           </p>
           <p className="card-text">
-            {productDetail.description}
+            <strong>Đánh giá: {productDetail.rating?.rate}</strong>
           </p>
+          <p className="card-text">
+            <strong>Đã bán: {productDetail.rating?.count}</strong>
+          </p>
+          <p className="card-text">{productDetail.description}</p>
           <div className="row d-flex mx-0 justify-content-between mt-4">
-            <button className="btn btn-danger d-flex justify-content-center align-items-center mx-2 py-2" style={{flex: 1}} onClick={() => handleAddToCart()}>
+            <button
+              className="btn btn-dark d-flex justify-content-center align-items-center mx-2 py-2"
+              style={{ flex: 1 }}
+              onClick={() => handleAddToCart()}
+            >
               <FaCartPlus style={{ marginRight: 16 }} />
               Thêm vào giỏ hàng
             </button>
-            <button className="btn btn-primary mx-2" style={{flex: 1}}>
+            <button className="btn btn-dark mx-2" style={{ flex: 1 }}>
               Mua ngay
             </button>
           </div>

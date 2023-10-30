@@ -31,8 +31,8 @@ function Payment() {
   };
 
   return (
-    <div className="container bg-white p-4" style={{ minHeight: "80vh" }}>
-      <div className="col-md-12 px-4">
+    <div className="container bg-white p-2" style={{ minHeight: "80vh" }}>
+      <div className="col-md-12 px-4 pt-4">
         <div className="d-flex align-items-center justify-content-center">
           <div className="step-node">
             <div className="circle" style={{ background: "#007bff" }}>
