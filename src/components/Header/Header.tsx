@@ -52,8 +52,12 @@ function Header() {
                 <Dropdown>
                   <Dropdown.Toggle id="dropdown-basic" className="user__dropdown--togle">
                     <div
-                      style={{
+                      style={user.photoURL ? {
                         width: 30,
+                        display: "inline-block",
+                        marginRight: 4,
+                      } : {
+                        width: 0,
                         display: "inline-block",
                         marginRight: 4,
                       }}
