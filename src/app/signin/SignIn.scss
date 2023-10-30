@@ -36,6 +36,16 @@
   border: 1px solid rgb(221, 221, 221);
   padding: 30px;
 
+  input {
+    border: 1.6px solid rgb(221, 221, 221);
+
+    &:focus {
+    border: 1.6px solid #86b7fe;
+    box-shadow: none;
+    box-sizing: border-box;
+    }
+  }
+
   .position-relative {
     img {
       width: 54px;
